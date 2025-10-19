@@ -1,24 +1,255 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html class="dark" lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <title>bjandri</title>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Brahim Jandri - Software Engineer</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1313ec",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101022",
+          },
+          fontFamily: {
+            "display": ["Orbitron", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
 </head>
 
-<body class="bg-sky-900">
-  <div class="hidden sm:ml-6 sm:block">
-    <div class="flex space-x-4">
-      <a href="#Dashboard"
-        class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-bold text-white">Dashboard</a>
-      <a href="#Resume"
-        class="rounded-md px-3 py-2 text-sm font-bold text-gray-300 hover:bg-white/5 hover:text-white">Resume</a>
-      <a href="#Projects"
-        class="rounded-md px-3 py-2 text-sm font-bold text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
-      <a href="#Contact"
-        class="rounded-md px-3 py-2 text-sm font-bold text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
+<body class="bg-background-light dark:bg-background-dark font-display text-white">
+  <div class="relative flex h-auto min-h-screen w-full flex-col bg-[#111122] dark group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+          <div class="@container">
+            <div class="@[480px]:p-4">
+              <div
+                class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-center justify-center p-4"
+                data-alt="Abstract futuristic background with blue and purple light streaks"
+                style='background-image: linear-gradient(rgba(16, 16, 34, 0.8) 0%, rgba(16, 16, 34, 0.9) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAwgkVHI0jqw8Fqvu5oc4P3acIVjHkOPNxCxsVZYd9aTyV1nRP4d_4_4Q6VCZynNIxiGhLeMspN9WW7Oi5N8hmLlnvqPD_tu67ksASo9UYxayXnSY7UrP7EknQEokVS-5lZ4s_KCO91iYTrZESGhpkmGu5oGUCF8Hm6D1b6GXR7p1NwdT-IgHOpY76ik1j9cHgG6NM1nYVhRiNkbW9PKVS-G6k59qCrnNjSm43UTYCQD59xUBEacfokSWpRIzZmSbtantK7_tbSYxC5");'>
+                <div class="flex flex-col gap-4 text-center items-center">
+                  <div
+                    class="w-16 h-16 rounded-full bg-[#232348] border-2 border-primary flex items-center justify-center shadow-[0_0_15px_rgba(19,19,236,0.5)]">
+                    <span class="material-symbols-outlined text-4xl text-primary">
+                      <img src="img.jpeg" alt="Profile Picture" class="rounded-full w-14 h-14">
+                    </span></div>
+                  <div class="flex flex-col gap-2">
+                    <h1
+                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-6xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                      Brahim Jandri
+                    </h1>
+                    <h2
+                      class="text-[#9292c9] text-lg font-normal leading-normal @[480px]:text-xl @[480px]:font-normal @[480px]:leading-normal">
+                      Software Engineer</h2>
+                  </div>
+                </div>
+                <div class="flex-wrap gap-3 flex justify-center">
+                  <a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-primary/80 transition-colors"
+                    href="#projects">
+                    <span class="truncate">View Projects</span>
+                  </a>
+                  <a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#232348] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-[#333368] transition-colors"
+                    href="#contact">
+                    <span class="truncate">Contact Me</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="py-10" id="about">
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-4">About Me</h2>
+            <div class="p-4 bg-[#191933] rounded-lg shadow-[0_0_8px_rgba(19,19,236,0.1)]">
+              <p class="text-[#c1c1e8] text-base leading-relaxed font-normal">
+                A dedicated Software Engineer, I am fueled by a profound passion for crafting elegant and efficient
+                code. My approach to technology is one of perpetual learning; I thrive on dissecting new frameworks and
+                languages to expand my skillset. I aspire to contribute to projects that push the boundaries of
+                innovation, aiming to build robust, scalable systems that solve real-world problems and shape the future
+                of technology.
+              </p>
+            </div>
+          </div>
+          <div id="skills">
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-10">Skills &amp;
+              Technologies</h2>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
+                data-alt="Abstract image for C language"
+                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8AdQVpqg1EXy3EX24SO4WII-lmWEqcIXdhO7UE1g2gg_usAJVsnapbe2i5Rj-dnv3VEsJDJ377zreFlcUq7RbfJ5SEk7ql4Yi7w_TGtP815jHv1jumn3kR2WrB9gngkzusfKxVrZ1QLTaJpm3bgmp9pkLCClzdQ6VTuY3KVedNvC5irgOGZM8YKDdnpJBX__Whsa5KnwpsroLuvdu6ipICESJnlKs0ZSRWykDUt4NDlde8oSQ0gcVRxn-nNEkWGgS-eMpDb0jYqaM");'>
+                <p
+                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
+                  C</p>
+              </div>
+              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
+                data-alt="Abstract image for C++ language"
+                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDyaNLkkz9FYOVVd150yflv7F5FKdHg10DApqNdefX9IThoSdHslRPt9FZwyBkn7yLwW8Lx8xiwQYoV-njhLJqXPkDZnD4yTJdXjcZaFPD8tiJYKUYU3gp-PbdvljNj1Z4uR3w_aEBBqZFOFFNJjNjRGyBgo4IvZh9t4cGjICTxni00R8Ir6Y1oQ1BsGIvXcPgJEfzLV3-kgW7pWGfpearYkrphTvfV7wZY_XA7mQfF6amnJCZn_P1wKwJh4N9PipkwBYjD1-ZFV36M");'>
+                <p
+                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
+                  C++</p>
+              </div>
+              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
+                data-alt="Abstract image for HTML"
+                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfIW_0X0549eIyHu-nwDf9ceIo6yO79hOaOMxLvgTXAg_xXV8AzAybKrFXbXgSxr2KuJdoONTIMyDmsJI5E0NbInthDNUBNJpzGEY3KaOq6wy5KTnIuhawwrvN8YjkMtqMrqCNBqPVKNhOjaTR4KbT4mdu0UAMWtp0eR_dnNOu7wi5h4YyVahqvsvYI4BTrgGOLYpsSCFiFxSoAD0wsGdGho1cXLlJa6zwBBbBfch8QhO9y3JGYopblFTbrMAzoblL_Xab5Knmefs1");'>
+                <p
+                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
+                  HTML</p>
+              </div>
+              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
+                data-alt="Abstract image for Tailwind CSS"
+                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCK7PFa1Vi7NlyphOxEaJwSIVGTzYPtVBPqJjsIPBJiHD3fwZ9HktlCUF1XP_rtc5ZuA7Ceml9fwcHdlbIG93SblbYD_jHDGGy8MG7sQEUCv6kmsXymibZ1S5Ja4REmv9nRBVxCT7gR4j4YKiB5oSEY9Oo-v9AoiQZb78_vLs2mGULXacxzXpJ8ndSkhwNj0udQrgvamIgWsBE-Jkb0MfPbL2fhRTUYH1L-KBjS_Aq8fsyxXOM_cx_sITrDGKR1vFiI0eN22vy5Cguq");'>
+                <p
+                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
+                  Tailwind CSS</p>
+              </div>
+              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
+                data-alt="Abstract image for TypeScript"
+                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhtOC-FjjBobh-KhgS5O6Jol-UKQ_1lPW3_VgmAPcVHJBg9h3_a_DQ8ZXe3XdMJMu0HRzbtVhVWZJ_nf9dvo6osOFG5iQF_vVJL4oojY7Mrzkj96mRzoI2FvJyuYPI0Q08r8Gi7QtRhXZary0Wt1HVWkUdU9cB7fLCkjpP80GYVpk47McOBS733NulM_mxW4FBr2AQN7kyJT0HMmtSBPWX4zWTlhozoKkdYg46YQct6ueYviEMmCJB9i8sDSguunZJ-aML0_dR7SW9");'>
+                <p
+                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
+                  TypeScript</p>
+              </div>
+              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
+                data-alt="Abstract image for Git"
+                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4P-lI_kWdz0Jxb6KYGv9DLdWAW3gjsDqsk70_JBnXCcbzvgsm9BwjkYKoLRI7-pMIf9dSnFZBAdFSZQJm-1LO-212jlhwoyTgpS8J6LOvZnse6Q2NmAZB7Nn_63MJGq2bHNECUp_TNj8Pk-ex4EsCgu_xeXNw4KterFBmp73g4evoQkVE8d6VVpbWaNBd2uexDj9m_XlV0dQk32PEQkCiCAS7eV-1f777-1m4wEEC7-hbBz2pAZH4IRlumEIcqPImFtFwUEdqu_nU");'>
+                <p
+                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
+                  Git</p>
+              </div>
+              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
+                data-alt="Abstract image for GitHub"
+                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2WXTWTxH2-S5DsAY09vVXXDwN8f-phOypxv4YGewZp5O2UU-Uvf8EduDF53M_mABQYciD9fB4CxwwLONLs7IN6r_gLsfGV5BEfML1xAmi4MljYX-b79u2Lg1-L4qM2uzseu2Y0lsvpG7qYbn07ioDKzD81zFJ0ByqqAkXq2n_rouFE822xcn2bLTCUVDZKcgWtkyPDhaiZMTBhw86dgDe085OQlzIOi4XUswqBt8n0fnRRJqKUmGveZz3SGokI2HQitvMNKo3H_PD");'>
+                <p
+                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
+                  GitHub</p>
+              </div>
+              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
+                data-alt="Abstract image for Docker"
+                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBlIdemoKEANwXqXyL_q3bv7xx3MYZU9ouQHFqS_Vs-l9oYz8-Y8kbXHptq_BV9ATwyIh_YGTNuwb9tedXQWb_Bo6fFyQWfcaB6pP_tupCm6Hxno_aLxrQp9ZA7TZas_tQlTjgwYSQhIb1KeP7Ex0vPS4MjIUFfrvRjUl6lG3b1MS8nuAPvwaJYAMV8sr4tlUgETnOmePdYRKIONhgvoFh3Gbj33bgwcqH7Futmww34h2C6EylPVx_d1upgf-gyXhdGqIb4O3FVA6Ok");'>
+                <p
+                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
+                  Docker</p>
+              </div>
+              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
+                data-alt="Abstract image for Shell scripting"
+                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCPhge_Cojy9dEvKYO4FkVVwLaIV36f96pT1ayPLTlZh_OBRRCcufW4bc2k-vJfOCGwBuUEvW6ohU0N5sJvoheiVay0l2999fw5i6jQivSPQLsjMwST9cHfz6U75HcjIxVSsU9CzcsYOsYQyKgvzvR-Q_tBLfdmefs6soId_o7kmGS5v1iStGQL7BIWu-JIjjBjX-j00Ia39Btb3Sa0uE9x2LgBxZt8NJk09ucC5XWVR0clunMZg5SuTnPGoEGUz_rv9_FOMoqRQNSB");'>
+                <p
+                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
+                  Shell</p>
+              </div>
+              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
+                data-alt="Abstract image for Linux"
+                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAmQE5cHYcvYLizVsXlclO6XhIJbaRzNOncEA4rLdBDSOSiXVq77R8op1HorhVz-uI7k_a2s3RC8Z4LIEFPj2y4Ymo73w_GsioFn7wEiivAST1SsJG1DdHsDAKLJq2L7KZH0WlFXFeW8Ad4Ik-Qb5lHFiq5S-tH0ttl3ehpMHIEzF-TFqWzujsVdtJ4KMk9ico-jkseQC5f6Z2sgSpOqCRZwK6ZASKhM9g3_RVHDQ6H1Q6fyqWX1iMAhcDZE9toflxJCzp3e2AXIV6D");'>
+                <p
+                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
+                  Linux</p>
+              </div>
+            </div>
+          </div>
+          <div id="projects">
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-10">Projects</h2>
+            <div
+              class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+              <div class="flex items-stretch p-4 gap-4">
+                <div
+                  class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-[#191933] shadow-[0_0_8px_rgba(19,19,236,0.2)] min-w-72 transform hover:-translate-y-2 transition-transform duration-300">
+                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl"
+                    data-alt="A futuristic abstract representation of Project Alpha"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQ6b-vMINOnDjXYt-cuGaNpW4G98jALtnEMtDGVVkSXzFtS3LSxMj4YTUehU-XyUEsnh6MSKXP6rHPl1KjaUZ4oAOE4lti6Bq_t_4uf1qdNUT2JqzcaM1JzWcAokdmziBayCMhfxJ_FYM5sdmOtSIOXOSw8m_Sbr-o2CgFSDe-mXB1nXk5GoWVjem1CTeqZ2U3mhrpmdiR2NmhNzlZw50VMu-oF0T3Xf5mNOy23uWmEhj3EzoH6pqZsAXxrsFPNV34mJ9D1UO_v4rO");'>
+                  </div>
+                  <div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
+                    <div>
+                      <p class="text-white text-lg font-bold leading-normal">Project Alpha</p>
+                      <p class="text-[#9292c9] text-sm font-normal leading-normal mt-1">A groundbreaking AI-driven data
+                        analysis platform.</p>
+                    </div>
+                    <button
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#232348] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary transition-colors">
+                      <span class="truncate">View Details</span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-[#191933] shadow-[0_0_8px_rgba(19,19,236,0.2)] min-w-72 transform hover:-translate-y-2 transition-transform duration-300">
+                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl"
+                    data-alt="A futuristic abstract representation of Project Beta"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1bJlhpwURtGxnSDiaJu9lXdSWUXyeP0kU8-XtY6xt5E596UBfILrGT17TRDcOT2gMJLMTWzzaBAaeDzZ8aGnynPdjIJT8WpIiFOYMwZ5_f6Off3NzcbXixuVth3BRBXT-V8iYIBgw1cltFKxJMQ5RbaHyaf68CE-3pAIf4D5wm_DlaJd7cYRQCos3B2cOQJv5cKSrBNLHqqPt2vvi4YtRugsvi7TSZWzgRKE1r4JBcTkRdRU7KI7UDUnoy8YSxXQ1MdApQCdg57Ds");'>
+                  </div>
+                  <div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
+                    <div>
+                      <p class="text-white text-lg font-bold leading-normal">Project Beta</p>
+                      <p class="text-[#9292c9] text-sm font-normal leading-normal mt-1">Decentralized application for
+                        secure asset management.</p>
+                    </div>
+                    <button
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#232348] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary transition-colors">
+                      <span class="truncate">View Details</span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-[#191933] shadow-[0_0_8px_rgba(19,19,236,0.2)] min-w-72 transform hover:-translate-y-2 transition-transform duration-300">
+                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl"
+                    data-alt="A futuristic abstract representation of Project Gamma"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_IN2-oEiF9HTZ2_S4ttrOFYuEawBt60yni7vUK_Eeik7HTWkTLLKinrlnmMe-0tA2KXvAR3_kxkifMEI4ugGXT6EBoN0B-zKuk7CcsHJJXRNd0tQeQcL2c0cyuq985BEOaxbAPeSjFK7dP_8KUPvdAPmyjpzk0Qgua51Hst6EwNvewzSoKZdRxOFyIaFCBB-IfNY_nETZB3eEBz25prr5DRYI6oAbSEtBoW3E9oozxycAYT64e3Y2ohK45HGvnmUfk-5Tmrq04m6b");'>
+                  </div>
+                  <div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
+                    <div>
+                      <p class="text-white text-lg font-bold leading-normal">Project Gamma</p>
+                      <p class="text-[#9292c9] text-sm font-normal leading-normal mt-1">High-performance game engine
+                        built from scratch.</p>
+                    </div>
+                    <button
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#232348] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary transition-colors">
+                      <span class="truncate">View Details</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="py-10" id="contact">
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-4 text-center">Contact
+              Me</h2>
+            <div class="p-4 bg-[#191933] rounded-lg shadow-[0_0_8px_rgba(19,19,236,0.1)]">
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
+                <a class="flex items-center gap-3 text-[#c1c1e8] hover:text-white transition-colors"
+                  href="mailto:brahim.jandri@pro.com"><span class="material-symbols-outlined text-primary text-3xl">
+                    email </span><span class="text-base font-normal">jandribrahim3334@gmail.com</span></a>
+                <div class="flex items-center gap-6">
+                  <a aria-label="LinkedIn profile" class="text-[#c1c1e8] hover:text-white transition-colors"
+                    href="#"><svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
+                      </path>
+                    </svg></a>
+                  <a aria-label="GitHub profile" class="text-[#c1c1e8] hover:text-white transition-colors" href="https://github.com/BrahimJandri"><svg
+                      class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                      </path>
+                    </svg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>
