@@ -77,15 +77,25 @@
     }
 
     @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: #B22222; }
+
+      from,
+      to {
+        border-color: transparent;
+      }
+
+      50% {
+        border-color: #B22222;
+      }
     }
 
     /* Floating animation for CTA button */
     @keyframes float {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0px);
       }
+
       50% {
         transform: translateY(-10px);
       }
@@ -134,8 +144,15 @@
     }
 
     @keyframes gradient-shift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
     }
 
     /* Slide in from left */
@@ -176,9 +193,12 @@
 
     /* Button pulse effect */
     @keyframes pulse {
-      0%, 100% {
+
+      0%,
+      100% {
         box-shadow: 0 0 0 0 rgba(178, 34, 34, 0.7);
       }
+
       50% {
         box-shadow: 0 0 0 15px rgba(178, 34, 34, 0);
       }
@@ -201,7 +221,7 @@
       border-radius: 50%;
       border: 3px solid rgba(178, 34, 34, 0.3);
       box-shadow: 0 0 10px rgba(178, 34, 34, 0.5),
-                  inset 0 0 10px rgba(178, 34, 34, 0.3);
+        inset 0 0 10px rgba(178, 34, 34, 0.3);
     }
 
     .neon-circle::after {
@@ -214,9 +234,9 @@
       top: 50%;
       left: 50%;
       box-shadow: 0 0 15px #fff,
-                  0 0 30px #ff6b6b,
-                  0 0 45px #B22222,
-                  0 0 60px #B22222;
+        0 0 30px #ff6b6b,
+        0 0 45px #B22222,
+        0 0 60px #B22222;
       animation: travel-around 3s linear infinite;
       transform-origin: center;
     }
@@ -225,6 +245,7 @@
       0% {
         transform: rotate(0deg) translate(132px) rotate(0deg);
       }
+
       100% {
         transform: rotate(360deg) translate(132px) rotate(-360deg);
       }
@@ -235,6 +256,7 @@
         0% {
           transform: rotate(0deg) translate(164px) rotate(0deg);
         }
+
         100% {
           transform: rotate(360deg) translate(164px) rotate(-360deg);
         }
@@ -286,10 +308,13 @@
     }
 
     @keyframes twinkle {
-      0%, 100% {
+
+      0%,
+      100% {
         opacity: 0.3;
         transform: scale(1);
       }
+
       50% {
         opacity: 1;
         transform: scale(1.2);
@@ -330,6 +355,7 @@
         transform: translateY(-100px);
         opacity: 1;
       }
+
       100% {
         transform: translateY(100vh);
         opacity: 0;
@@ -432,11 +458,13 @@
           <button id="theme-toggle-mobile"
             class="p-2 rounded-full text-theme-black dark:text-theme-cream hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none transition-colors duration-200"
             aria-label="Toggle dark mode">
-            <svg class="h-6 w-6 hidden dark:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="h-6 w-6 hidden dark:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
-            <svg class="h-6 w-6 block dark:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="h-6 w-6 block dark:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
             </svg>
@@ -480,8 +508,9 @@
         class="mobile-menu-link text-lg text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200 py-2">Projects</a>
       <a href="#contact"
         class="mobile-menu-link text-lg text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200 py-2">Contact</a>
-      <a href="#resume-download"
-        class="mobile-menu-link text-lg text-theme-red font-bold hover:underline transition-colors duration-200 py-2">Download Resume</a>
+      <a href="resume.pdf" download
+        class="mobile-menu-link text-lg text-theme-red font-bold hover:underline transition-colors duration-200 py-2">Download
+        Resume</a>
     </div>
   </div>
 
@@ -500,12 +529,13 @@
         style="animation-delay: 0.4s;">
         I build modern, responsive, and visually compelling web experiences that bring ideas to life.
       </p>
-      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-section" style="animation-delay: 0.6s;">
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-section"
+        style="animation-delay: 0.6s;">
         <a href="#projects"
           class="pulse-button cta-button inline-block px-8 py-3 bg-theme-red text-theme-cream text-lg font-bold rounded-lg shadow-lg hover:bg-red-700 dark:hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-theme-red focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105">
           View My Work
         </a>
-        <a href="resume.pdf" download
+        <a href="Resume.pdf" download
           class="inline-block px-8 py-3 bg-transparent border-2 border-theme-red text-theme-red text-lg font-bold rounded-lg hover:bg-theme-red hover:text-theme-cream focus:outline-none focus:ring-2 focus:ring-theme-red focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105">
           Download Resume
         </a>
@@ -560,46 +590,91 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 fade-in-section" style="animation-delay: 0.2s;">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 fade-in-section"
+          style="animation-delay: 0.2s;">
           <!-- Skill Card -->
-          <div class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
             <div class="text-4xl mb-3">⚛️</div>
             <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">React</h3>
           </div>
 
-          <div class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
             <div class="text-4xl mb-3">📘</div>
             <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">TypeScript</h3>
           </div>
 
-          <div class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
             <div class="text-4xl mb-3">🎨</div>
             <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">Tailwind CSS</h3>
           </div>
 
-          <div class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
             <div class="text-4xl mb-3">📜</div>
             <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">JavaScript</h3>
           </div>
 
-          <div class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
             <div class="text-4xl mb-3">🌐</div>
             <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">HTML5</h3>
           </div>
 
-          <div class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
             <div class="text-4xl mb-3">🎯</div>
             <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">CSS3</h3>
           </div>
 
-          <div class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
             <div class="text-4xl mb-3">🔧</div>
             <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">Git</h3>
           </div>
 
-          <div class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
             <div class="text-4xl mb-3">📱</div>
             <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">Responsive Design</h3>
+          </div>
+
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+            <div class="text-4xl mb-3">🔵</div>
+            <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">C</h3>
+          </div>
+
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+            <div class="text-4xl mb-3">⚙️</div>
+            <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">C++</h3>
+          </div>
+
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+            <div class="text-4xl mb-3">🐧</div>
+            <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">Linux</h3>
+          </div>
+
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+            <div class="text-4xl mb-3">💻</div>
+            <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">Shell/Bash</h3>
+          </div>
+
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+            <div class="text-4xl mb-3">🐳</div>
+            <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">Docker</h3>
+          </div>
+
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+            <div class="text-4xl mb-3">✨</div>
+            <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">UI/UX Design</h3>
           </div>
         </div>
       </div>
@@ -630,9 +705,12 @@
                 web development is not on your carreer path.
               </p>
               <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-semibold">C++</span>
-                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full text-sm font-semibold">Networking</span>
-                <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">HTTP</span>
+                <span
+                  class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-semibold">C++</span>
+                <span
+                  class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full text-sm font-semibold">Networking</span>
+                <span
+                  class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">HTTP</span>
               </div>
               <div class="flex space-x-4">
                 <a href="#" target="_blank" class="text-theme-red font-bold hover:underline">Live Demo</a>
@@ -653,17 +731,24 @@
                 profiles, built with a modern TypeScript stack.
               </p>
               <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-semibold">TypeScript</span>
-                <span class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-800 dark:text-cyan-300 rounded-full text-sm font-semibold">React</span>
-                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full text-sm font-semibold">WebSocket</span>
-                <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">PostgreSQL</span>
+                <span
+                  class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-semibold">TypeScript</span>
+                <span
+                  class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-800 dark:text-cyan-300 rounded-full text-sm font-semibold">React</span>
+                <span
+                  class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full text-sm font-semibold">WebSocket</span>
+                <span
+                  class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">PostgreSQL</span>
               </div>
               <div class="flex space-x-4">
                 <a href="#" target="_blank" class="text-theme-red font-bold hover:underline">Live Demo</a>
-                <a href="#" target="_blank" class="text-theme-red font-bold hover:underline">View Code</a>
+                <a href="https://github.com/BrahimJandri/ft_transcendence" target="_blank" class="text-theme-red font-bold hover:underline">View Code</a>
               </div>
             </div>
           </div>
+
+
+
 
           <!-- Add more project cards as needed -->
 
@@ -684,20 +769,23 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 fade-in-section" style="animation-delay: 0.2s;">
           <!-- GitHub Stats Card -->
           <div class="flex justify-center">
-            <img src="https://github-readme-stats.vercel.app/api?username=BrahimJandri&show_icons=true&theme=radical&hide_border=true&bg_color=1A1A1A&title_color=B22222&icon_color=ff6b6b&text_color=F5EFE6"
+            <img
+              src="https://github-readme-stats.vercel.app/api?username=BrahimJandri&show_icons=true&theme=radical&hide_border=true&bg_color=1A1A1A&title_color=B22222&icon_color=ff6b6b&text_color=F5EFE6"
               alt="GitHub Stats" class="rounded-lg shadow-xl w-full max-w-md">
           </div>
 
           <!-- GitHub Streak Stats -->
           <div class="flex justify-center">
-            <img src="https://github-readme-streak-stats.herokuapp.com/?user=BrahimJandri&theme=radical&hide_border=true&background=1A1A1A&ring=B22222&fire=ff6b6b&currStreakLabel=F5EFE6"
+            <img
+              src="https://github-readme-streak-stats.herokuapp.com/?user=BrahimJandri&theme=radical&hide_border=true&background=1A1A1A&ring=B22222&fire=ff6b6b&currStreakLabel=F5EFE6"
               alt="GitHub Streak" class="rounded-lg shadow-xl w-full max-w-md">
           </div>
         </div>
 
         <!-- Top Languages -->
         <div class="mt-8 flex justify-center fade-in-section" style="animation-delay: 0.4s;">
-          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=BrahimJandri&layout=compact&theme=radical&hide_border=true&bg_color=1A1A1A&title_color=B22222&text_color=F5EFE6"
+          <img
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=BrahimJandri&layout=compact&theme=radical&hide_border=true&bg_color=1A1A1A&title_color=B22222&text_color=F5EFE6"
             alt="Top Languages" class="rounded-lg shadow-xl max-w-md">
         </div>
       </div>
@@ -709,7 +797,8 @@
         <div class="text-center mb-16 fade-in-section">
           <h2 class="text-4xl font-bold text-theme-red">Let's Connect</h2>
           <p class="mt-4 text-lg text-theme-black dark:text-theme-cream max-w-xl mx-auto">
-            I'm currently available for freelance opportunities and open to discussing new projects. Feel free to reach out!
+            I'm currently available for freelance opportunities and open to discussing new projects. Feel free to reach
+            out!
           </p>
         </div>
 
@@ -718,19 +807,22 @@
           <div class="fade-in-section">
             <form id="contact-form" class="space-y-6">
               <div>
-                <label for="name" class="block text-sm font-bold text-theme-black dark:text-theme-cream mb-2">Name</label>
+                <label for="name"
+                  class="block text-sm font-bold text-theme-black dark:text-theme-cream mb-2">Name</label>
                 <input type="text" id="name" name="name" required
                   class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-theme-black dark:text-theme-cream focus:border-theme-red focus:outline-none transition-colors duration-200">
               </div>
 
               <div>
-                <label for="email" class="block text-sm font-bold text-theme-black dark:text-theme-cream mb-2">Email</label>
+                <label for="email"
+                  class="block text-sm font-bold text-theme-black dark:text-theme-cream mb-2">Email</label>
                 <input type="email" id="email" name="email" required
                   class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-theme-black dark:text-theme-cream focus:border-theme-red focus:outline-none transition-colors duration-200">
               </div>
 
               <div>
-                <label for="message" class="block text-sm font-bold text-theme-black dark:text-theme-cream mb-2">Message</label>
+                <label for="message"
+                  class="block text-sm font-bold text-theme-black dark:text-theme-cream mb-2">Message</label>
                 <textarea id="message" name="message" rows="5" required
                   class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-theme-black dark:text-theme-cream focus:border-theme-red focus:outline-none transition-colors duration-200"></textarea>
               </div>
@@ -748,9 +840,12 @@
               <div>
                 <h3 class="text-xl font-bold text-theme-red mb-4">Direct Contact</h3>
                 <div class="space-y-4">
-                  <a href="mailto:bjandri.1337@gmail.com" class="flex items-center space-x-3 text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200">
+                  <a href="mailto:bjandri.1337@gmail.com"
+                    class="flex items-center space-x-3 text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                      </path>
                     </svg>
                     <span>bjandri.1337@gmail.com</span>
                   </a>
@@ -763,26 +858,23 @@
                   <a href="https://github.com/BrahimJandri" target="_blank"
                     class="p-3 bg-gray-200 dark:bg-gray-800 rounded-full text-theme-black dark:text-theme-cream hover:bg-theme-red hover:text-theme-cream transition-all duration-200">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.379.201 2.398.098 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.523 2 12 2z" clip-rule="evenodd" />
+                      <path fill-rule="evenodd"
+                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.379.201 2.398.098 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.523 2 12 2z"
+                        clip-rule="evenodd" />
                     </svg>
                   </a>
-                  <a href="https://linkedin.com/in/brahimjandri" target="_blank"
+                  <a href="https://www.linkedin.com/in/brahim-jandri-1190ba256/" target="_blank"
                     class="p-3 bg-gray-200 dark:bg-gray-800 rounded-full text-theme-black dark:text-theme-cream hover:bg-theme-red hover:text-theme-cream transition-all duration-200">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                    </svg>
-                  </a>
-                  <a href="https://twitter.com/BrahimJandri" target="_blank"
-                    class="p-3 bg-gray-200 dark:bg-gray-800 rounded-full text-theme-black dark:text-theme-cream hover:bg-theme-red hover:text-theme-cream transition-all duration-200">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                      <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                     </svg>
                   </a>
                 </div>
               </div>
 
               <div class="pt-6">
-                <a href="resume.pdf" download
+                <a href="Resume.pdf" download
                   class="inline-block px-6 py-3 bg-transparent border-2 border-theme-red text-theme-red font-bold rounded-lg hover:bg-theme-red hover:text-theme-cream transition-all duration-300">
                   📄 Download Resume
                 </a>
@@ -808,7 +900,7 @@
               clip-rule="evenodd" />
           </svg>
         </a>
-        <a href="https://linkedin.com/in/brahimjandri" target="_blank"
+        <a href="https://www.linkedin.com/in/brahim-jandri-1190ba256/" target="_blank"
           class="text-gray-500 dark:text-gray-400 hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200"
           aria-label="LinkedIn">
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -817,18 +909,13 @@
               clip-rule="evenodd" />
           </svg>
         </a>
-        <a href="https://twitter.com/BrahimJandri" target="_blank"
-          class="text-gray-500 dark:text-gray-400 hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200"
-          aria-label="Twitter">
-          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-          </svg>
-        </a>
         <a href="mailto:bjandri.1337@gmail.com"
           class="text-gray-500 dark:text-gray-400 hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200"
           aria-label="Email">
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+            </path>
           </svg>
         </a>
       </div>
