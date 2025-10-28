@@ -1,5 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // --- Mobile Menu Toggle ---
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      });
+    });
+  }
+
+  // --- Scroll Progress Bar ---
+  const scrollProgress = document.getElementById('scroll-progress');
+  
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercent = (scrollTop / scrollHeight) * 100;
+    scrollProgress.style.width = scrollPercent + '%';
+  });
+
   // --- Generate Animated Stars ---
   const starsContainer = document.getElementById('stars-container');
   const numberOfStars = 100; // Adjust for more/fewer stars
@@ -134,6 +164,39 @@ document.addEventListener('DOMContentLoaded', () => {
     setTheme(isDark ? 'light' : 'dark');
   });
 
+  // Mobile theme toggle
+  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+  if (themeToggleMobile) {
+    themeToggleMobile.addEventListener('click', () => {
+      const isDark = htmlElement.classList.contains('dark');
+      setTheme(isDark ? 'light' : 'dark');
+    });
+  }
+
+
+  // --- Contact Form Handling ---
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      // Create mailto link
+      const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+      window.location.href = `mailto:bjandri.1337@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Reset form
+      contactForm.reset();
+      
+      // Show success message (optional)
+      alert('Thank you for your message! Your email client will open to send the message.');
+    });
+  }
+
 
   // --- Scroll Animation Logic ---
   const observer = new IntersectionObserver((entries) => {
@@ -147,9 +210,9 @@ document.addEventListener('DOMContentLoaded', () => {
     threshold: 0.1 // Triggers when 10% of the element is visible
   });
 
-  // Observe all elements with the 'fade-in-section' class
-  const sections = document.querySelectorAll('.fade-in-section');
-  sections.forEach(section => {
+  // Observe all elements with animation classes
+  const animatedSections = document.querySelectorAll('.fade-in-section, .slide-in-left, .slide-in-right, .scale-up');
+  animatedSections.forEach(section => {
     observer.observe(section);
   });
 
