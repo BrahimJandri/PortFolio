@@ -192,10 +192,66 @@ document.addEventListener('DOMContentLoaded', () => {
       // Reset form
       contactForm.reset();
       
-      // Show success message (optional)
-      alert('Thank you for your message! Your email client will open to send the message.');
+      // Show success message
+      showSuccessMessage('Message sent! Your email client will open.');
     });
   }
+
+  // Success message function
+  function showSuccessMessage(message) {
+    // Create success message element if it doesn't exist
+    let successMsg = document.querySelector('.success-message');
+    if (!successMsg) {
+      successMsg = document.createElement('div');
+      successMsg.className = 'success-message';
+      document.body.appendChild(successMsg);
+    }
+    
+    successMsg.textContent = message;
+    successMsg.classList.add('show');
+    
+    // Hide after 3 seconds
+    setTimeout(() => {
+      successMsg.classList.remove('show');
+    }, 3000);
+  }
+
+  // Email copy to clipboard functionality
+  const emailCopyLink = document.getElementById('email-copy');
+  if (emailCopyLink) {
+    emailCopyLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      const email = 'bjandri.1337@gmail.com';
+      
+      // Copy to clipboard
+      navigator.clipboard.writeText(email).then(() => {
+        showSuccessMessage('✓ Email copied to clipboard!');
+      }).catch(() => {
+        // Fallback for older browsers
+        const tempInput = document.createElement('input');
+        tempInput.value = email;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        showSuccessMessage('✓ Email copied to clipboard!');
+      });
+    });
+  }
+
+  // Form input focus animations
+  const formInputs = document.querySelectorAll('.contact-form-input');
+  formInputs.forEach(input => {
+    input.addEventListener('focus', function() {
+      this.parentElement.classList.add('focused');
+    });
+    
+    input.addEventListener('blur', function() {
+      if (!this.value) {
+        this.parentElement.classList.remove('focused');
+      }
+    });
+  });
 
 
   // --- Scroll Animation Logic ---
@@ -285,5 +341,28 @@ document.addEventListener('DOMContentLoaded', () => {
       ticking = true;
     }
   });
+
+
+  // --- Back to Top Button ---
+  const backToTopBtn = document.getElementById('back-to-top');
+  
+  if (backToTopBtn) {
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+
+    // Scroll to top when clicked
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
 
 });

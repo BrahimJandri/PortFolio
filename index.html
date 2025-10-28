@@ -422,6 +422,405 @@
         display: flex;
       }
     }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: #B22222;
+      color: #F5EFE6;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(178, 34, 34, 0.4);
+      z-index: 1000;
+    }
+
+    .back-to-top:hover {
+      background: #8B1A1A;
+      transform: translateY(0) scale(1.1);
+      box-shadow: 0 6px 20px rgba(178, 34, 34, 0.6);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    html.dark .back-to-top {
+      background: #B22222;
+      color: #F5EFE6;
+    }
+
+    html.dark .back-to-top:hover {
+      background: #ff6b6b;
+    }
+
+    /* About section animations */
+    .about-text-line {
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: slideInText 0.6s ease-out forwards;
+    }
+
+    @keyframes slideInText {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .about-highlight {
+      position: relative;
+      display: inline-block;
+      font-weight: 700;
+      color: #B22222;
+    }
+
+    .about-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #B22222, #ff6b6b);
+      animation: underlineExpand 0.8s ease-out forwards;
+    }
+
+    @keyframes underlineExpand {
+      to {
+        width: 100%;
+      }
+    }
+
+    /* Floating icons animation */
+    .float-icon {
+      position: absolute;
+      opacity: 0.1;
+      animation: floatAround 20s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes floatAround {
+      0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      25% {
+        transform: translate(20px, -20px) rotate(90deg);
+      }
+      50% {
+        transform: translate(-10px, -30px) rotate(180deg);
+      }
+      75% {
+        transform: translate(-30px, 10px) rotate(270deg);
+      }
+    }
+
+    /* Profile image hover effect */
+    .profile-image-container {
+      position: relative;
+      transition: transform 0.5s ease;
+    }
+
+    .profile-image-container:hover {
+      transform: scale(1.05);
+    }
+
+    .profile-image-container img {
+      transition: filter 0.3s ease;
+    }
+
+    .profile-image-container:hover img {
+      filter: brightness(1.1) contrast(1.05);
+    }
+
+    /* About button pulse on hover */
+    .about-cta {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(178, 34, 34, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .about-cta:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .about-cta span {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Typewriter effect for about heading */
+    .about-heading {
+      overflow: hidden;
+      border-right: 3px solid transparent;
+      white-space: nowrap;
+      animation: typeHeading 1.5s steps(8) forwards, blinkHeading 0.75s step-end 8;
+      width: 0;
+    }
+
+    @keyframes typeHeading {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blinkHeading {
+      50% {
+        border-color: #B22222;
+      }
+    }
+
+    /* Stats counter animation */
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #B22222;
+      opacity: 0;
+      transform: scale(0.5);
+      animation: popIn 0.6s ease-out forwards;
+    }
+
+    @keyframes popIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Contact Section Animations */
+    .contact-form-input {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form-input:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(178, 34, 34, 0.2);
+    }
+
+    .contact-form-input:focus + .input-border {
+      width: 100%;
+    }
+
+    .input-border {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #B22222, #ff6b6b);
+      transition: width 0.4s ease;
+    }
+
+    /* Form label animation */
+    .form-label {
+      display: inline-block;
+      animation: labelSlide 0.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes labelSlide {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      from {
+        transform: translateX(-10px);
+      }
+    }
+
+    /* Submit button ripple effect */
+    .submit-button {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-button::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .submit-button:hover::after {
+      width: 300px;
+      height: 300px;
+    }
+
+    .submit-button span {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Contact card hover animations */
+    .contact-card {
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 1rem;
+      padding: 2px;
+      background: linear-gradient(135deg, #B22222, #ff6b6b, #B22222);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-card:hover::before {
+      opacity: 1;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(178, 34, 34, 0.3);
+    }
+
+    /* Social icon pulse animation */
+    .social-icon {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: #B22222;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.3s ease;
+    }
+
+    .social-icon:hover::before {
+      opacity: 0.2;
+      animation: socialPulse 1.5s infinite;
+    }
+
+    @keyframes socialPulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.2;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px) rotate(5deg);
+    }
+
+    /* Email copy animation */
+    .email-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .email-link::after {
+      content: 'Click to copy';
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-10px);
+      background: #B22222;
+      color: #F5EFE6;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .email-link:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Floating contact icons */
+    .contact-float-icon {
+      position: absolute;
+      opacity: 0.05;
+      animation: contactFloat 15s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes contactFloat {
+      0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      33% {
+        transform: translate(30px, -30px) rotate(120deg);
+      }
+      66% {
+        transform: translate(-20px, 20px) rotate(240deg);
+      }
+    }
+
+    /* Success message animation */
+    .success-message {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      background: #B22222;
+      color: #F5EFE6;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+      z-index: 10000;
+    }
+
+    .success-message.show {
+      transform: translateX(0);
+    }
   </style>
 </head>
 
@@ -432,6 +831,13 @@
 
   <!-- ====== Animated Stars Background ====== -->
   <div class="stars-container" id="stars-container"></div>
+
+  <!-- ====== Back to Top Button ====== -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </button>
 
   <!-- ====== Navigation Bar ====== -->
   <nav
@@ -447,6 +853,8 @@
         <div class="hidden sm:flex sm:items-center sm:space-x-8">
           <a href="#about"
             class="text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200">About</a>
+          <a href="#experience"
+            class="text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200">Experience</a>
           <a href="#projects"
             class="text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200">Projects</a>
           <a href="#contact"
@@ -504,6 +912,8 @@
     <div class="flex flex-col space-y-4">
       <a href="#about"
         class="mobile-menu-link text-lg text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200 py-2">About</a>
+      <a href="#experience"
+        class="mobile-menu-link text-lg text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200 py-2">Experience</a>
       <a href="#projects"
         class="mobile-menu-link text-lg text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200 py-2">Projects</a>
       <a href="#contact"
@@ -546,33 +956,186 @@
   <main>
     <!-- ====== About Me Section ====== -->
     <section id="about"
-      class="py-24 sm:py-32 bg-theme-cream dark:bg-theme-black border-t border-b border-gray-200 dark:border-gray-800">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      class="py-24 sm:py-32 bg-theme-cream dark:bg-theme-black border-t border-b border-gray-200 dark:border-gray-800 relative overflow-hidden">
+      
+      <!-- Floating background icons -->
+      <div class="float-icon text-6xl" style="top: 10%; left: 5%; animation-delay: 0s;">💻</div>
+      <div class="float-icon text-5xl" style="top: 70%; right: 10%; animation-delay: 2s;">⚛️</div>
+      <div class="float-icon text-7xl" style="bottom: 20%; left: 15%; animation-delay: 4s;">🎨</div>
+      <div class="float-icon text-4xl" style="top: 40%; right: 20%; animation-delay: 6s;">⚡</div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
           <!-- Text Content -->
           <div class="md:col-span-3 slide-in-left">
-            <h2 class="text-4xl font-bold text-theme-red mb-6">About Me</h2>
-            <p class="text-lg text-theme-black dark:text-theme-cream mb-4">
-              Hello! I'm a passionate front-end developer with a love for clean code and minimalist design. My goal is
-              to create intuitive, accessible, and high-performance websites.
+            <h2 class="text-4xl font-bold text-theme-red mb-6 about-heading inline-block">About Me</h2>
+            <p class="text-lg text-theme-black dark:text-theme-cream mb-4 about-text-line" style="animation-delay: 0.3s;">
+              Hello! I'm a <span class="about-highlight">passionate front-end developer</span> from Morocco, dedicated to crafting beautiful and functional web experiences. 
+              I specialize in building <span class="about-highlight">modern, responsive, and user-centric</span> applications that solve real-world problems.
             </p>
-            <p class="text-lg text-theme-black dark:text-theme-cream mb-6">
-              With experience in Typescript, React, Tailwindcss, and Html, I'm always eager to learn new technologies
-              and build
-              amazing things. When I'm not coding, you can find me exploring new coffee shops or hiking.
+            <p class="text-lg text-theme-black dark:text-theme-cream mb-6 about-text-line" style="animation-delay: 0.5s;">
+              Currently studying at <span class="about-highlight">1337 Coding School</span>, I've developed strong expertise in <span class="about-highlight">React, TypeScript, C/C++</span>, and modern web technologies. 
+              I'm passionate about <span class="about-highlight">clean code, performance optimization</span>, and creating seamless user interfaces. 
+              My approach combines technical excellence with creative design thinking.
             </p>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-3 gap-4 mb-6 about-text-line" style="animation-delay: 0.7s;">
+              <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="stat-number" style="animation-delay: 0.8s;">10+</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400 font-semibold">Projects</div>
+              </div>
+              <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="stat-number" style="animation-delay: 1s;">2+</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400 font-semibold">Years</div>
+              </div>
+              <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="stat-number" style="animation-delay: 1.2s;">15+</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400 font-semibold">Skills</div>
+              </div>
+            </div>
+
             <a href="#contact"
-              class="inline-block px-6 py-2 bg-transparent border-2 border-theme-red text-theme-red text-md font-bold rounded-lg hover:bg-theme-red hover:text-theme-cream focus:outline-none focus:ring-2 focus:ring-theme-red focus:ring-opacity-50 transition-all duration-300">
-              Get In Touch
+              class="about-cta inline-block px-6 py-2 bg-transparent border-2 border-theme-red text-theme-red text-md font-bold rounded-lg hover:bg-theme-red hover:text-theme-cream focus:outline-none focus:ring-2 focus:ring-theme-red focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105 about-text-line"
+              style="animation-delay: 0.9s;">
+              <span>Get In Touch</span>
             </a>
           </div>
           <!-- Image / Graphic Placeholder -->
           <div class="md:col-span-2 flex justify-center items-center scale-up" style="animation-delay: 0.2s;">
-            <div class="neon-circle">
+            <div class="neon-circle profile-image-container">
               <div
                 class="w-64 h-64 sm:w-80 sm:h-80 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center justify-center overflow-hidden shadow-lg">
                 <!-- Placeholder for a photo -->
-                <img src="bjandri.jpeg" alt="A portrait of Your Name" class="w-full h-full object-cover">
+                <img src="bjandri.jpeg" alt="A portrait of Brahim Jandri" class="w-full h-full object-cover" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Experience & Education Section ====== -->
+    <section id="experience" class="py-24 sm:py-32 bg-theme-cream dark:bg-theme-black">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in-section">
+          <h2 class="text-4xl font-bold text-theme-red">Experience & Education</h2>
+          <p class="mt-4 text-lg text-theme-black dark:text-theme-cream">
+            My journey in software development
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Experience Column -->
+          <div class="fade-in-section">
+            <h3 class="text-2xl font-bold text-theme-red mb-8 flex items-center">
+              <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Experience
+            </h3>
+            <div class="space-y-8">
+              <!-- Experience Item 1 -->
+              <div class="relative pl-8 border-l-2 border-theme-red">
+                <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-theme-red"></div>
+                <div class="mb-1 flex items-center gap-2">
+                  <h4 class="text-xl font-bold text-theme-black dark:text-theme-cream">Front-End Developer</h4>
+                  <span class="px-2 py-1 bg-theme-red/10 text-theme-red text-xs font-semibold rounded">Current</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Freelance • 2024 - Present</p>
+                <ul class="text-theme-black dark:text-theme-cream space-y-2">
+                  <li class="flex items-start">
+                    <span class="text-theme-red mr-2">▹</span>
+                    <span>Building modern, responsive web applications using React and TypeScript</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-theme-red mr-2">▹</span>
+                    <span>Implementing pixel-perfect UI designs with Tailwind CSS</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-theme-red mr-2">▹</span>
+                    <span>Collaborating with clients to deliver high-quality web solutions</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Experience Item 2 -->
+              <div class="relative pl-8 border-l-2 border-gray-300 dark:border-gray-700">
+                <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                <h4 class="text-xl font-bold text-theme-black dark:text-theme-cream mb-1">Web Developer Intern</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Tech Company • 2023 - 2024</p>
+                <ul class="text-theme-black dark:text-theme-cream space-y-2">
+                  <li class="flex items-start">
+                    <span class="text-theme-red mr-2">▹</span>
+                    <span>Developed interactive web components using JavaScript and HTML/CSS</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-theme-red mr-2">▹</span>
+                    <span>Optimized website performance and improved load times by 40%</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-theme-red mr-2">▹</span>
+                    <span>Participated in code reviews and agile development processes</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education Column -->
+          <div class="fade-in-section" style="animation-delay: 0.2s;">
+            <h3 class="text-2xl font-bold text-theme-red mb-8 flex items-center">
+              <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+              </svg>
+              Education
+            </h3>
+            <div class="space-y-8">
+              <!-- Education Item 1 -->
+              <div class="relative pl-8 border-l-2 border-theme-red">
+                <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-theme-red"></div>
+                <div class="mb-1 flex items-center gap-2">
+                  <h4 class="text-xl font-bold text-theme-black dark:text-theme-cream">1337 Coding School</h4>
+                  <span class="px-2 py-1 bg-theme-red/10 text-theme-red text-xs font-semibold rounded">In Progress</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Software Engineering • 2023 - Present</p>
+                <ul class="text-theme-black dark:text-theme-cream space-y-2">
+                  <li class="flex items-start">
+                    <span class="text-theme-red mr-2">▹</span>
+                    <span>Intensive peer-to-peer learning program focused on C/C++ programming</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-theme-red mr-2">▹</span>
+                    <span>Built projects including HTTP server, real-time multiplayer game</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-theme-red mr-2">▹</span>
+                    <span>Advanced topics: Algorithms, System Administration, Web Development</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Education Item 2 -->
+              <div class="relative pl-8 border-l-2 border-gray-300 dark:border-gray-700">
+                <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                <h4 class="text-xl font-bold text-theme-black dark:text-theme-cream mb-1">Online Certifications</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Various Platforms • 2022 - 2024</p>
+                <ul class="text-theme-black dark:text-theme-cream space-y-2">
+                  <li class="flex items-start">
+                    <span class="text-theme-red mr-2">▹</span>
+                    <span>Advanced React & TypeScript - Udemy</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-theme-red mr-2">▹</span>
+                    <span>Responsive Web Design - freeCodeCamp</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-theme-red mr-2">▹</span>
+                    <span>JavaScript Algorithms and Data Structures</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -676,6 +1239,20 @@
             <div class="text-4xl mb-3">✨</div>
             <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">UI/UX Design</h3>
           </div>
+
+          <div
+            class="skill-card bg-theme-cream dark:bg-theme-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+            <div class="text-4xl mb-3">
+              <svg class="w-10 h-10 mx-auto" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 28.5C19 23.8056 22.8056 20 27.5 20C32.1944 20 36 23.8056 36 28.5C36 33.1944 32.1944 37 27.5 37C22.8056 37 19 33.1944 19 28.5Z" fill="#1ABCFE"/>
+                <path d="M0 46.5C0 41.8056 3.80558 38 8.5 38H19V46.5C19 51.1944 15.1944 55 10.5 55C5.80558 55 0 51.1944 0 46.5Z" fill="#0ACF83"/>
+                <path d="M19 0V19H27.5C32.1944 19 36 15.1944 36 10.5C36 5.80558 32.1944 0 27.5 0H19Z" fill="#FF7262"/>
+                <path d="M0 10.5C0 15.1944 3.80558 19 8.5 19H19V0H8.5C3.80558 0 0 5.80558 0 10.5Z" fill="#F24E1E"/>
+                <path d="M0 28.5C0 33.1944 3.80558 37 8.5 37H19V20H8.5C3.80558 20 0 23.8056 0 28.5Z" fill="#A259FF"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-theme-black dark:text-theme-cream">Figma</h3>
+          </div>
         </div>
       </div>
     </section>
@@ -696,7 +1273,7 @@
           <!-- Project Card 1 -->
           <div
             class="project-card bg-theme-cream dark:bg-theme-black shadow-xl rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-theme-red/30 dark:hover:shadow-theme-red/20 fade-in-section">
-            <img src="Webserv.png" alt="Project One Screenshot" class="w-full h-auto object-cover">
+            <img src="Webserv.png" alt="WebServ Project Screenshot" class="w-full h-auto object-cover" loading="lazy">
             <div class="p-6">
               <h3 class="text-2xl font-bold text-theme-black dark:text-theme-cream mb-2">WebServ</h3>
               <p class="text-theme-black dark:text-theme-cream mb-4">
@@ -714,7 +1291,7 @@
               </div>
               <div class="flex space-x-4">
                 <a href="#" target="_blank" class="text-theme-red font-bold hover:underline">Live Demo</a>
-                <a href="#" target="_blank" class="text-theme-red font-bold hover:underline">View Code</a>
+                <a href="https://github.com/BrahimJandri/Webserv" target="_blank" class="text-theme-red font-bold hover:underline">View Code</a>
               </div>
             </div>
           </div>
@@ -723,7 +1300,7 @@
           <div
             class="project-card bg-theme-cream dark:bg-theme-black shadow-xl rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-theme-red/30 dark:hover:shadow-theme-red/20 fade-in-section"
             style="animation-delay: 0.2s;">
-            <img src="transcendence.png" alt="Project Two Screenshot" class="w-full h-auto object-cover">
+            <img src="transcendence.png" alt="Ft_transcendence Project Screenshot" class="w-full h-auto object-cover" loading="lazy">
             <div class="p-6">
               <h3 class="text-2xl font-bold text-theme-black dark:text-theme-cream mb-2">Ft_transcendence</h3>
               <p class="text-theme-black dark:text-theme-cream mb-4">
@@ -771,14 +1348,14 @@
           <div class="flex justify-center">
             <img
               src="https://github-readme-stats.vercel.app/api?username=BrahimJandri&show_icons=true&theme=radical&hide_border=true&bg_color=1A1A1A&title_color=B22222&icon_color=ff6b6b&text_color=F5EFE6"
-              alt="GitHub Stats" class="rounded-lg shadow-xl w-full max-w-md">
+              alt="GitHub Stats" class="rounded-lg shadow-xl w-full max-w-md" loading="lazy">
           </div>
 
           <!-- GitHub Streak Stats -->
           <div class="flex justify-center">
             <img
               src="https://github-readme-streak-stats.herokuapp.com/?user=BrahimJandri&theme=radical&hide_border=true&background=1A1A1A&ring=B22222&fire=ff6b6b&currStreakLabel=F5EFE6"
-              alt="GitHub Streak" class="rounded-lg shadow-xl w-full max-w-md">
+              alt="GitHub Streak" class="rounded-lg shadow-xl w-full max-w-md" loading="lazy">
           </div>
         </div>
 
@@ -786,16 +1363,22 @@
         <div class="mt-8 flex justify-center fade-in-section" style="animation-delay: 0.4s;">
           <img
             src="https://github-readme-stats.vercel.app/api/top-langs/?username=BrahimJandri&layout=compact&theme=radical&hide_border=true&bg_color=1A1A1A&title_color=B22222&text_color=F5EFE6"
-            alt="Top Languages" class="rounded-lg shadow-xl max-w-md">
+            alt="Top Languages" class="rounded-lg shadow-xl max-w-md" loading="lazy">
         </div>
       </div>
     </section>
 
     <!-- ====== Contact Section ====== -->
-    <section id="contact" class="py-24 sm:py-32 bg-theme-cream dark:bg-theme-black">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" class="py-24 sm:py-32 bg-theme-cream dark:bg-theme-black relative overflow-hidden">
+      <!-- Floating background icons -->
+      <div class="contact-float-icon text-6xl" style="top: 10%; left: 5%; animation-delay: 0s;">✉️</div>
+      <div class="contact-float-icon text-5xl" style="top: 60%; right: 10%; animation-delay: 3s;">💬</div>
+      <div class="contact-float-icon text-7xl" style="bottom: 10%; left: 15%; animation-delay: 6s;">📱</div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="text-center mb-16 fade-in-section">
-          <h2 class="text-4xl font-bold text-theme-red">Let's Connect</h2>
+          <h2 class="text-4xl font-bold text-theme-red mb-2">Let's Connect</h2>
+          <div class="w-20 h-1 bg-gradient-to-r from-theme-red to-red-400 mx-auto mb-6 rounded"></div>
           <p class="mt-4 text-lg text-theme-black dark:text-theme-cream max-w-xl mx-auto">
             I'm currently available for freelance opportunities and open to discussing new projects. Feel free to reach
             out!
@@ -805,80 +1388,122 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
           <!-- Contact Form -->
           <div class="fade-in-section">
+            <h3 class="text-2xl font-bold text-theme-black dark:text-theme-cream mb-6 flex items-center">
+              <span class="text-2xl mr-3">📧</span>
+              Send a Message
+            </h3>
             <form id="contact-form" class="space-y-6">
-              <div>
+              <div class="relative">
                 <label for="name"
-                  class="block text-sm font-bold text-theme-black dark:text-theme-cream mb-2">Name</label>
-                <input type="text" id="name" name="name" required
-                  class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-theme-black dark:text-theme-cream focus:border-theme-red focus:outline-none transition-colors duration-200">
+                  class="form-label block text-sm font-bold text-theme-black dark:text-theme-cream mb-2" style="animation-delay: 0.1s;">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe"
+                  class="contact-form-input w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-theme-black dark:text-theme-cream focus:border-theme-red focus:outline-none transition-all duration-200">
               </div>
 
-              <div>
+              <div class="relative">
                 <label for="email"
-                  class="block text-sm font-bold text-theme-black dark:text-theme-cream mb-2">Email</label>
-                <input type="email" id="email" name="email" required
-                  class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-theme-black dark:text-theme-cream focus:border-theme-red focus:outline-none transition-colors duration-200">
+                  class="form-label block text-sm font-bold text-theme-black dark:text-theme-cream mb-2" style="animation-delay: 0.2s;">Your Email</label>
+                <input type="email" id="email" name="email" required placeholder="john@example.com"
+                  class="contact-form-input w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-theme-black dark:text-theme-cream focus:border-theme-red focus:outline-none transition-all duration-200">
               </div>
 
-              <div>
+              <div class="relative">
                 <label for="message"
-                  class="block text-sm font-bold text-theme-black dark:text-theme-cream mb-2">Message</label>
-                <textarea id="message" name="message" rows="5" required
-                  class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-theme-black dark:text-theme-cream focus:border-theme-red focus:outline-none transition-colors duration-200"></textarea>
+                  class="form-label block text-sm font-bold text-theme-black dark:text-theme-cream mb-2" style="animation-delay: 0.3s;">Your Message</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."
+                  class="contact-form-input w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-theme-black dark:text-theme-cream focus:border-theme-red focus:outline-none transition-all duration-200 resize-none"></textarea>
               </div>
 
               <button type="submit"
-                class="w-full px-8 py-3 bg-theme-red text-theme-cream text-lg font-bold rounded-lg shadow-lg hover:bg-red-700 dark:hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-theme-red focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105">
-                Send Message
+                class="submit-button w-full px-8 py-4 bg-theme-red text-theme-cream text-lg font-bold rounded-lg shadow-lg hover:bg-red-700 dark:hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-theme-red focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105">
+                <span class="flex items-center justify-center">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                  </svg>
+                  Send Message
+                </span>
               </button>
             </form>
           </div>
 
           <!-- Contact Info -->
-          <div class="fade-in-section" style="animation-delay: 0.2s;">
-            <div class="space-y-8">
-              <div>
-                <h3 class="text-xl font-bold text-theme-red mb-4">Direct Contact</h3>
-                <div class="space-y-4">
-                  <a href="mailto:bjandri.1337@gmail.com"
-                    class="flex items-center space-x-3 text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="fade-in-section space-y-6" style="animation-delay: 0.2s;">
+            <h3 class="text-2xl font-bold text-theme-black dark:text-theme-cream mb-6 flex items-center">
+              <span class="text-2xl mr-3">📍</span>
+              Get in Touch
+            </h3>
+
+            <!-- Email Card -->
+            <div class="contact-card p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-theme-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
                       </path>
                     </svg>
-                    <span>bjandri.1337@gmail.com</span>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-gray-500 dark:text-gray-400 mb-1">EMAIL</h4>
+                  <a href="mailto:bjandri.1337@gmail.com" id="email-copy"
+                    class="email-link text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200 font-semibold break-all">
+                    bjandri.1337@gmail.com
                   </a>
                 </div>
               </div>
+            </div>
 
-              <div>
-                <h3 class="text-xl font-bold text-theme-red mb-4">Follow Me</h3>
-                <div class="flex space-x-4">
-                  <a href="https://github.com/BrahimJandri" target="_blank"
-                    class="p-3 bg-gray-200 dark:bg-gray-800 rounded-full text-theme-black dark:text-theme-cream hover:bg-theme-red hover:text-theme-cream transition-all duration-200">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path fill-rule="evenodd"
-                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.379.201 2.398.098 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.523 2 12 2z"
-                        clip-rule="evenodd" />
+            <!-- Location Card -->
+            <div class="contact-card p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-theme-red/10 rounded-full flex items-center justify-center">
+                    <svg class="w-6 h-6 text-theme-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                     </svg>
-                  </a>
-                  <a href="https://www.linkedin.com/in/brahim-jandri-1190ba256/" target="_blank"
-                    class="p-3 bg-gray-200 dark:bg-gray-800 rounded-full text-theme-black dark:text-theme-cream hover:bg-theme-red hover:text-theme-cream transition-all duration-200">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                    </svg>
-                  </a>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-gray-500 dark:text-gray-400 mb-1">LOCATION</h4>
+                  <p class="text-theme-black dark:text-theme-cream font-semibold">Morocco</p>
                 </div>
               </div>
+            </div>
 
-              <div class="pt-6">
-                <a href="Resume.pdf" download
-                  class="inline-block px-6 py-3 bg-transparent border-2 border-theme-red text-theme-red font-bold rounded-lg hover:bg-theme-red hover:text-theme-cream transition-all duration-300">
-                  📄 Download Resume
+            <!-- Social Links -->
+            <div class="contact-card p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+              <h4 class="text-sm font-bold text-gray-500 dark:text-gray-400 mb-4">FOLLOW ME</h4>
+              <div class="flex space-x-4">
+                <a href="https://github.com/BrahimJandri" target="_blank"
+                  class="social-icon p-3 bg-gray-200 dark:bg-gray-700 rounded-full text-theme-black dark:text-theme-cream hover:bg-theme-red hover:text-theme-cream">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.379.201 2.398.098 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.523 2 12 2z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/brahim-jandri-1190ba256/" target="_blank"
+                  class="social-icon p-3 bg-gray-200 dark:bg-gray-700 rounded-full text-theme-black dark:text-theme-cream hover:bg-theme-red hover:text-theme-cream">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
                 </a>
               </div>
+            </div>
+
+            <!-- Download Resume -->
+            <div class="mt-6">
+              <a href="Resume.pdf" download
+                class="inline-flex items-center px-6 py-3 bg-transparent border-2 border-theme-red text-theme-red font-bold rounded-lg hover:bg-theme-red hover:text-theme-cream transition-all duration-300 transform hover:scale-105">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Download Resume
+              </a>
             </div>
           </div>
         </div>
