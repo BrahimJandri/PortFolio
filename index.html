@@ -50,6 +50,11 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
+    /* Navbar transition for hide/show effect */
+    nav {
+      transition: transform 0.3s ease-in-out;
+    }
+
     /* Base class for scroll-triggered animations */
     .fade-in-section {
       opacity: 0;
@@ -61,6 +66,29 @@
     .fade-in-section.is-visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* Typewriter effect cursor */
+    .typewriter-name {
+      opacity: 0;
+      border-right: 3px solid #B22222;
+      padding-right: 8px;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #B22222; }
+    }
+
+    /* Floating animation for CTA button */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
     /* Style for the custom scrollbar (optional but fits the aesthetic) */
@@ -83,10 +111,87 @@
       background-color: #1A1A1A;
       /* theme-black */
     }
+
+    /* Animated stars background */
+    .stars-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      background: #1A1A1A;
+      border-radius: 50%;
+      animation: twinkle 3s infinite;
+    }
+
+    html.dark .star {
+      background: #F5EFE6;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    /* Different star sizes */
+    .star-small {
+      width: 2px;
+      height: 2px;
+    }
+
+    .star-medium {
+      width: 3px;
+      height: 3px;
+    }
+
+    .star-large {
+      width: 4px;
+      height: 4px;
+    }
+
+    /* Shooting stars */
+    .shooting-star {
+      position: absolute;
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, #F5EFE6, transparent);
+      animation: shoot-down 0.8s linear infinite;
+    }
+
+    html:not(.dark) .shooting-star {
+      background: linear-gradient(to bottom, transparent, #1A1A1A, transparent);
+    }
+
+    @keyframes shoot-down {
+      0% {
+        transform: translateY(-100px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 
 <body class="bg-theme-cream text-theme-black dark:bg-theme-black dark:text-theme-cream font-sans antialiased">
+
+  <!-- ====== Animated Stars Background ====== -->
+  <div class="stars-container" id="stars-container"></div>
 
   <!-- ====== Navigation Bar ====== -->
   <nav
@@ -136,7 +241,7 @@
     <div class="text-center max-w-3xl">
       <h1
         class="text-5xl md:text-7xl lg:text-8xl font-black text-theme-black dark:text-theme-cream uppercase tracking-tighter fade-in-section">
-        Hi, I'm <span class="text-theme-red">Brahim Jandri</span>
+        Hi, I'm <span class="text-theme-red typewriter-name">Brahim Jandri</span>
       </h1>
       <p class="mt-6 text-2xl md:text-3xl font-bold text-gray-700 dark:text-gray-300 fade-in-section"
         style="animation-delay: 0.2s;">
@@ -147,7 +252,7 @@
         I build modern, responsive, and visually compelling web experiences that bring ideas to life.
       </p>
       <a href="#projects"
-        class="inline-block mt-10 px-8 py-3 bg-theme-red text-theme-cream text-lg font-bold rounded-lg shadow-lg hover:bg-red-700 dark:hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-theme-red focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105 fade-in-section"
+        class="cta-button inline-block mt-10 px-8 py-3 bg-theme-red text-theme-cream text-lg font-bold rounded-lg shadow-lg hover:bg-red-700 dark:hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-theme-red focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105 fade-in-section"
         style="animation-delay: 0.6s;">
         View My Work
       </a>
@@ -294,69 +399,7 @@
 
 
   <!-- ====== JavaScript ====== -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-
-      // --- Dark Mode Toggle Logic ---
-      const themeToggleBtn = document.getElementById('theme-toggle');
-      const htmlElement = document.documentElement;
-      const lightIcon = document.getElementById('theme-toggle-light-icon');
-      const darkIcon = document.getElementById('theme-toggle-dark-icon');
-
-      // Function to set theme
-      const setTheme = (theme) => {
-        if (theme === 'dark') {
-          htmlElement.classList.add('dark');
-          htmlElement.classList.remove('light');
-          lightIcon.classList.add('block');
-          lightIcon.classList.remove('hidden');
-          darkIcon.classList.add('hidden');
-          darkIcon.classList.remove('block');
-          localStorage.setItem('theme', 'dark');
-        } else {
-          htmlElement.classList.remove('dark');
-          htmlElement.classList.add('light');
-          lightIcon.classList.add('hidden');
-          lightIcon.classList.remove('block');
-          darkIcon.classList.add('block');
-          darkIcon.classList.remove('hidden');
-          localStorage.setItem('theme', 'light');
-        }
-      };
-
-      // Check for saved theme in localStorage or system preference
-      const currentTheme = localStorage.getItem('theme') ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-      setTheme(currentTheme);
-
-      // Toggle theme on button click
-      themeToggleBtn.addEventListener('click', () => {
-        const isDark = htmlElement.classList.contains('dark');
-        setTheme(isDark ? 'light' : 'dark');
-      });
-
-
-      // --- Scroll Animation Logic ---
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
-        });
-      }, {
-        rootMargin: '0px',
-        threshold: 0.1 // Triggers when 10% of the element is visible
-      });
-
-      // Observe all elements with the 'fade-in-section' class
-      const sections = document.querySelectorAll('.fade-in-section');
-      sections.forEach(section => {
-        observer.observe(section);
-      });
-
-    });
-  </script>
+  <script src="script.js"></script>
 
 </body>
 
