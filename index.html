@@ -1,257 +1,363 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en" class="light"> <!-- 'light' by default, script will manage this -->
 
 <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Brahim Jandri - Software Engineer</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&amp;display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-  <script id="tailwind-config">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brahim Jandri - Front-End Developer</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- Custom Tailwind Configuration -->
+  <script>
     tailwind.config = {
-      darkMode: "class",
+      darkMode: 'class', // This enables the 'dark:' variants based on the class on the <html> tag
       theme: {
         extend: {
-          colors: {
-            "primary": "#1313ec",
-            "background-light": "#f6f6f8",
-            "background-dark": "#101022",
-          },
           fontFamily: {
-            "display": ["Orbitron", "sans-serif"]
+            sans: ['Inter', 'sans-serif'],
           },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
+          colors: {
+            // Your custom color palette
+            'theme-black': '#1A1A1A',
+            'theme-cream': '#F5EFE6',
+            'theme-red': '#B22222',
           },
-        },
-      },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.6s ease-out forwards'
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
     }
   </script>
+
+  <!-- Custom Styles for animations and body transition -->
+  <style>
+    /* Smooth transition for background and text color */
+    body {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Base class for scroll-triggered animations */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    /* Class added by JS when element is in view */
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Style for the custom scrollbar (optional but fits the aesthetic) */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #F5EFE6;
+      /* theme-cream */
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #B22222;
+      /* theme-red */
+      border-radius: 4px;
+    }
+
+    html.dark ::-webkit-scrollbar-track {
+      background-color: #1A1A1A;
+      /* theme-black */
+    }
+  </style>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark font-display text-white">
-  <div class="relative flex h-auto min-h-screen w-full flex-col bg-[#111122] dark group/design-root overflow-x-hidden">
-    <div class="layout-container flex h-full grow flex-col">
-      <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-          <div class="@container">
-            <div class="@[480px]:p-4">
-              <div
-                class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-center justify-center p-4"
-                data-alt="Abstract futuristic background with blue and purple light streaks"
-                style='background-image: linear-gradient(rgba(16, 16, 34, 0.8) 0%, rgba(16, 16, 34, 0.9) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAwgkVHI0jqw8Fqvu5oc4P3acIVjHkOPNxCxsVZYd9aTyV1nRP4d_4_4Q6VCZynNIxiGhLeMspN9WW7Oi5N8hmLlnvqPD_tu67ksASo9UYxayXnSY7UrP7EknQEokVS-5lZ4s_KCO91iYTrZESGhpkmGu5oGUCF8Hm6D1b6GXR7p1NwdT-IgHOpY76ik1j9cHgG6NM1nYVhRiNkbW9PKVS-G6k59qCrnNjSm43UTYCQD59xUBEacfokSWpRIzZmSbtantK7_tbSYxC5");'>
-                <div class="flex flex-col gap-4 text-center items-center">
-                  <div
-                    class="w-16 h-16 rounded-full bg-[#232348] border-2 border-primary flex items-center justify-center shadow-[0_0_15px_rgba(19,19,236,0.5)]">
-                    <span class="material-symbols-outlined text-4xl text-primary">
-                      <img src="img.jpeg" alt="Profile Picture" class="rounded-full w-14 h-14">
-                    </span></div>
-                  <div class="flex flex-col gap-2">
-                    <h1
-                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-6xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                      Brahim Jandri
-                    </h1>
-                    <h2
-                      class="text-[#9292c9] text-lg font-normal leading-normal @[480px]:text-xl @[480px]:font-normal @[480px]:leading-normal">
-                      Software Engineer</h2>
-                  </div>
-                </div>
-                <div class="flex-wrap gap-3 flex justify-center">
-                  <a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-primary/80 transition-colors"
-                    href="#projects">
-                    <span class="truncate">View Projects</span>
-                  </a>
-                  <a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#232348] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-[#333368] transition-colors"
-                    href="#contact">
-                    <span class="truncate">Contact Me</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+<body class="bg-theme-cream text-theme-black dark:bg-theme-black dark:text-theme-cream font-sans antialiased">
+
+  <!-- ====== Navigation Bar ====== -->
+  <nav
+    class="fixed top-0 left-0 w-full bg-theme-cream/80 dark:bg-theme-black/80 backdrop-blur-sm shadow-md z-50 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo / Name -->
+        <div class="flex-shrink-0 flex items-center">
+          <a href="#" class="text-2xl font-bold text-theme-black dark:text-theme-cream">Brahim Jandri</a>
+        </div>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden sm:flex sm:items-center sm:space-x-8">
+          <a href="#about"
+            class="text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200">About</a>
+          <a href="#projects"
+            class="text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200">Projects</a>
+          <a href="#contact"
+            class="text-theme-black dark:text-theme-cream hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200">Contact</a>
+        </div>
+
+        <!-- Dark Mode Toggle -->
+        <div class="flex items-center">
+          <button id="theme-toggle"
+            class="p-2 rounded-full text-theme-black dark:text-theme-cream hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none transition-colors duration-200"
+            aria-label="Toggle dark mode">
+            <!-- Sun Icon (Light Mode) -->
+            <svg id="theme-toggle-light-icon" class="h-6 w-6 hidden dark:block" xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <!-- Moon Icon (Dark Mode) -->
+            <svg id="theme-toggle-dark-icon" class="h-6 w-6 block dark:hidden" xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== Hero Section ====== -->
+  <header class="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl">
+      <h1
+        class="text-5xl md:text-7xl lg:text-8xl font-black text-theme-black dark:text-theme-cream uppercase tracking-tighter fade-in-section">
+        Hi, I'm <span class="text-theme-red">Brahim Jandri</span>
+      </h1>
+      <p class="mt-6 text-2xl md:text-3xl font-bold text-gray-700 dark:text-gray-300 fade-in-section"
+        style="animation-delay: 0.2s;">
+        Front-End Developer
+      </p>
+      <p class="mt-4 text-lg md:text-xl text-theme-black dark:text-theme-cream max-w-2xl mx-auto fade-in-section"
+        style="animation-delay: 0.4s;">
+        I build modern, responsive, and visually compelling web experiences that bring ideas to life.
+      </p>
+      <a href="#projects"
+        class="inline-block mt-10 px-8 py-3 bg-theme-red text-theme-cream text-lg font-bold rounded-lg shadow-lg hover:bg-red-700 dark:hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-theme-red focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105 fade-in-section"
+        style="animation-delay: 0.6s;">
+        View My Work
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====== About Me Section ====== -->
+    <section id="about"
+      class="py-24 sm:py-32 bg-theme-cream dark:bg-theme-black border-t border-b border-gray-200 dark:border-gray-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
+          <!-- Text Content -->
+          <div class="md:col-span-3 fade-in-section">
+            <h2 class="text-4xl font-bold text-theme-red mb-6">About Me</h2>
+            <p class="text-lg text-theme-black dark:text-theme-cream mb-4">
+              Hello! I'm a passionate front-end developer with a love for clean code and minimalist design. My goal is
+              to create intuitive, accessible, and high-performance websites.
+            </p>
+            <p class="text-lg text-theme-black dark:text-theme-cream mb-6">
+              With experience in Typescript, React, Tailwindcss, and Html, I'm always eager to learn new technologies
+              and build
+              amazing things. When I'm not coding, you can find me exploring new coffee shops or hiking.
+            </p>
+            <a href="#contact"
+              class="inline-block px-6 py-2 bg-transparent border-2 border-theme-red text-theme-red text-md font-bold rounded-lg hover:bg-theme-red hover:text-theme-cream focus:outline-none focus:ring-2 focus:ring-theme-red focus:ring-opacity-50 transition-all duration-300">
+              Get In Touch
+            </a>
           </div>
-          <div class="py-10" id="about">
-            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-4">About Me</h2>
-            <div class="p-4 bg-[#191933] rounded-lg shadow-[0_0_8px_rgba(19,19,236,0.1)]">
-              <p class="text-[#c1c1e8] text-base leading-relaxed font-normal">
-                A dedicated Software Engineer, I am fueled by a profound passion for crafting elegant and efficient
-                code. My approach to technology is one of perpetual learning; I thrive on dissecting new frameworks and
-                languages to expand my skillset. I aspire to contribute to projects that push the boundaries of
-                innovation, aiming to build robust, scalable systems that solve real-world problems and shape the future
-                of technology.
-              </p>
-            </div>
-          </div>
-          <div id="skills">
-            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-10">Skills &amp;
-              Technologies</h2>
-            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
-                data-alt="Abstract image for C language"
-                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8AdQVpqg1EXy3EX24SO4WII-lmWEqcIXdhO7UE1g2gg_usAJVsnapbe2i5Rj-dnv3VEsJDJ377zreFlcUq7RbfJ5SEk7ql4Yi7w_TGtP815jHv1jumn3kR2WrB9gngkzusfKxVrZ1QLTaJpm3bgmp9pkLCClzdQ6VTuY3KVedNvC5irgOGZM8YKDdnpJBX__Whsa5KnwpsroLuvdu6ipICESJnlKs0ZSRWykDUt4NDlde8oSQ0gcVRxn-nNEkWGgS-eMpDb0jYqaM");'>
-                <p
-                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
-                  C</p>
-              </div>
-              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
-                data-alt="Abstract image for C++ language"
-                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDyaNLkkz9FYOVVd150yflv7F5FKdHg10DApqNdefX9IThoSdHslRPt9FZwyBkn7yLwW8Lx8xiwQYoV-njhLJqXPkDZnD4yTJdXjcZaFPD8tiJYKUYU3gp-PbdvljNj1Z4uR3w_aEBBqZFOFFNJjNjRGyBgo4IvZh9t4cGjICTxni00R8Ir6Y1oQ1BsGIvXcPgJEfzLV3-kgW7pWGfpearYkrphTvfV7wZY_XA7mQfF6amnJCZn_P1wKwJh4N9PipkwBYjD1-ZFV36M");'>
-                <p
-                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
-                  C++</p>
-              </div>
-              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
-                data-alt="Abstract image for HTML"
-                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfIW_0X0549eIyHu-nwDf9ceIo6yO79hOaOMxLvgTXAg_xXV8AzAybKrFXbXgSxr2KuJdoONTIMyDmsJI5E0NbInthDNUBNJpzGEY3KaOq6wy5KTnIuhawwrvN8YjkMtqMrqCNBqPVKNhOjaTR4KbT4mdu0UAMWtp0eR_dnNOu7wi5h4YyVahqvsvYI4BTrgGOLYpsSCFiFxSoAD0wsGdGho1cXLlJa6zwBBbBfch8QhO9y3JGYopblFTbrMAzoblL_Xab5Knmefs1");'>
-                <p
-                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
-                  HTML</p>
-              </div>
-              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
-                data-alt="Abstract image for Tailwind CSS"
-                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCK7PFa1Vi7NlyphOxEaJwSIVGTzYPtVBPqJjsIPBJiHD3fwZ9HktlCUF1XP_rtc5ZuA7Ceml9fwcHdlbIG93SblbYD_jHDGGy8MG7sQEUCv6kmsXymibZ1S5Ja4REmv9nRBVxCT7gR4j4YKiB5oSEY9Oo-v9AoiQZb78_vLs2mGULXacxzXpJ8ndSkhwNj0udQrgvamIgWsBE-Jkb0MfPbL2fhRTUYH1L-KBjS_Aq8fsyxXOM_cx_sITrDGKR1vFiI0eN22vy5Cguq");'>
-                <p
-                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
-                  Tailwind CSS</p>
-              </div>
-              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
-                data-alt="Abstract image for TypeScript"
-                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhtOC-FjjBobh-KhgS5O6Jol-UKQ_1lPW3_VgmAPcVHJBg9h3_a_DQ8ZXe3XdMJMu0HRzbtVhVWZJ_nf9dvo6osOFG5iQF_vVJL4oojY7Mrzkj96mRzoI2FvJyuYPI0Q08r8Gi7QtRhXZary0Wt1HVWkUdU9cB7fLCkjpP80GYVpk47McOBS733NulM_mxW4FBr2AQN7kyJT0HMmtSBPWX4zWTlhozoKkdYg46YQct6ueYviEMmCJB9i8sDSguunZJ-aML0_dR7SW9");'>
-                <p
-                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
-                  TypeScript</p>
-              </div>
-              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
-                data-alt="Abstract image for Git"
-                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4P-lI_kWdz0Jxb6KYGv9DLdWAW3gjsDqsk70_JBnXCcbzvgsm9BwjkYKoLRI7-pMIf9dSnFZBAdFSZQJm-1LO-212jlhwoyTgpS8J6LOvZnse6Q2NmAZB7Nn_63MJGq2bHNECUp_TNj8Pk-ex4EsCgu_xeXNw4KterFBmp73g4evoQkVE8d6VVpbWaNBd2uexDj9m_XlV0dQk32PEQkCiCAS7eV-1f777-1m4wEEC7-hbBz2pAZH4IRlumEIcqPImFtFwUEdqu_nU");'>
-                <p
-                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
-                  Git</p>
-              </div>
-              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
-                data-alt="Abstract image for GitHub"
-                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2WXTWTxH2-S5DsAY09vVXXDwN8f-phOypxv4YGewZp5O2UU-Uvf8EduDF53M_mABQYciD9fB4CxwwLONLs7IN6r_gLsfGV5BEfML1xAmi4MljYX-b79u2Lg1-L4qM2uzseu2Y0lsvpG7qYbn07ioDKzD81zFJ0ByqqAkXq2n_rouFE822xcn2bLTCUVDZKcgWtkyPDhaiZMTBhw86dgDe085OQlzIOi4XUswqBt8n0fnRRJqKUmGveZz3SGokI2HQitvMNKo3H_PD");'>
-                <p
-                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
-                  GitHub</p>
-              </div>
-              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
-                data-alt="Abstract image for Docker"
-                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBlIdemoKEANwXqXyL_q3bv7xx3MYZU9ouQHFqS_Vs-l9oYz8-Y8kbXHptq_BV9ATwyIh_YGTNuwb9tedXQWb_Bo6fFyQWfcaB6pP_tupCm6Hxno_aLxrQp9ZA7TZas_tQlTjgwYSQhIb1KeP7Ex0vPS4MjIUFfrvRjUl6lG3b1MS8nuAPvwaJYAMV8sr4tlUgETnOmePdYRKIONhgvoFh3Gbj33bgwcqH7Futmww34h2C6EylPVx_d1upgf-gyXhdGqIb4O3FVA6Ok");'>
-                <p
-                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
-                  Docker</p>
-              </div>
-              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
-                data-alt="Abstract image for Shell scripting"
-                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCPhge_Cojy9dEvKYO4FkVVwLaIV36f96pT1ayPLTlZh_OBRRCcufW4bc2k-vJfOCGwBuUEvW6ohU0N5sJvoheiVay0l2999fw5i6jQivSPQLsjMwST9cHfz6U75HcjIxVSsU9CzcsYOsYQyKgvzvR-Q_tBLfdmefs6soId_o7kmGS5v1iStGQL7BIWu-JIjjBjX-j00Ia39Btb3Sa0uE9x2LgBxZt8NJk09ucC5XWVR0clunMZg5SuTnPGoEGUz_rv9_FOMoqRQNSB");'>
-                <p
-                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
-                  Shell</p>
-              </div>
-              <div class="bg-cover bg-center flex flex-col gap-3 rounded-lg justify-end p-4 aspect-square group/skill"
-                data-alt="Abstract image for Linux"
-                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAmQE5cHYcvYLizVsXlclO6XhIJbaRzNOncEA4rLdBDSOSiXVq77R8op1HorhVz-uI7k_a2s3RC8Z4LIEFPj2y4Ymo73w_GsioFn7wEiivAST1SsJG1DdHsDAKLJq2L7KZH0WlFXFeW8Ad4Ik-Qb5lHFiq5S-tH0ttl3ehpMHIEzF-TFqWzujsVdtJ4KMk9ico-jkseQC5f6Z2sgSpOqCRZwK6ZASKhM9g3_RVHDQ6H1Q6fyqWX1iMAhcDZE9toflxJCzp3e2AXIV6D");'>
-                <p
-                  class="text-white text-base font-bold leading-tight line-clamp-2 transform group-hover/skill:scale-110 transition-transform">
-                  Linux</p>
-              </div>
-            </div>
-          </div>
-          <div id="projects">
-            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-10">Projects</h2>
+          <!-- Image / Graphic Placeholder -->
+          <div class="md:col-span-2 flex justify-center items-center fade-in-section" style="animation-delay: 0.2s;">
             <div
-              class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
-              <div class="flex items-stretch p-4 gap-4">
-                <div
-                  class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-[#191933] shadow-[0_0_8px_rgba(19,19,236,0.2)] min-w-72 transform hover:-translate-y-2 transition-transform duration-300">
-                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl"
-                    data-alt="A futuristic abstract representation of Project Alpha"
-                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQ6b-vMINOnDjXYt-cuGaNpW4G98jALtnEMtDGVVkSXzFtS3LSxMj4YTUehU-XyUEsnh6MSKXP6rHPl1KjaUZ4oAOE4lti6Bq_t_4uf1qdNUT2JqzcaM1JzWcAokdmziBayCMhfxJ_FYM5sdmOtSIOXOSw8m_Sbr-o2CgFSDe-mXB1nXk5GoWVjem1CTeqZ2U3mhrpmdiR2NmhNzlZw50VMu-oF0T3Xf5mNOy23uWmEhj3EzoH6pqZsAXxrsFPNV34mJ9D1UO_v4rO");'>
-                  </div>
-                  <div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
-                    <div>
-                      <p class="text-white text-lg font-bold leading-normal">Project Alpha</p>
-                      <p class="text-[#9292c9] text-sm font-normal leading-normal mt-1">A groundbreaking AI-driven data
-                        analysis platform.</p>
-                    </div>
-                    <button
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#232348] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary transition-colors">
-                      <span class="truncate">View Details</span>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-[#191933] shadow-[0_0_8px_rgba(19,19,236,0.2)] min-w-72 transform hover:-translate-y-2 transition-transform duration-300">
-                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl"
-                    data-alt="A futuristic abstract representation of Project Beta"
-                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1bJlhpwURtGxnSDiaJu9lXdSWUXyeP0kU8-XtY6xt5E596UBfILrGT17TRDcOT2gMJLMTWzzaBAaeDzZ8aGnynPdjIJT8WpIiFOYMwZ5_f6Off3NzcbXixuVth3BRBXT-V8iYIBgw1cltFKxJMQ5RbaHyaf68CE-3pAIf4D5wm_DlaJd7cYRQCos3B2cOQJv5cKSrBNLHqqPt2vvi4YtRugsvi7TSZWzgRKE1r4JBcTkRdRU7KI7UDUnoy8YSxXQ1MdApQCdg57Ds");'>
-                  </div>
-                  <div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
-                    <div>
-                      <p class="text-white text-lg font-bold leading-normal">Project Beta</p>
-                      <p class="text-[#9292c9] text-sm font-normal leading-normal mt-1">Decentralized application for
-                        secure asset management.</p>
-                    </div>
-                    <button
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#232348] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary transition-colors">
-                      <span class="truncate">View Details</span>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-[#191933] shadow-[0_0_8px_rgba(19,19,236,0.2)] min-w-72 transform hover:-translate-y-2 transition-transform duration-300">
-                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl"
-                    data-alt="A futuristic abstract representation of Project Gamma"
-                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_IN2-oEiF9HTZ2_S4ttrOFYuEawBt60yni7vUK_Eeik7HTWkTLLKinrlnmMe-0tA2KXvAR3_kxkifMEI4ugGXT6EBoN0B-zKuk7CcsHJJXRNd0tQeQcL2c0cyuq985BEOaxbAPeSjFK7dP_8KUPvdAPmyjpzk0Qgua51Hst6EwNvewzSoKZdRxOFyIaFCBB-IfNY_nETZB3eEBz25prr5DRYI6oAbSEtBoW3E9oozxycAYT64e3Y2ohK45HGvnmUfk-5Tmrq04m6b");'>
-                  </div>
-                  <div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
-                    <div>
-                      <p class="text-white text-lg font-bold leading-normal">Project Gamma</p>
-                      <p class="text-[#9292c9] text-sm font-normal leading-normal mt-1">High-performance game engine
-                        built from scratch.</p>
-                    </div>
-                    <button
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#232348] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary transition-colors">
-                      <span class="truncate">View Details</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="py-10" id="contact">
-            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-4 text-center">Contact
-              Me</h2>
-            <div class="p-4 bg-[#191933] rounded-lg shadow-[0_0_8px_rgba(19,19,236,0.1)]">
-              <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
-                <a class="flex items-center gap-3 text-[#c1c1e8] hover:text-white transition-colors"
-                  href="mailto:brahim.jandri@pro.com"><span class="material-symbols-outlined text-primary text-3xl">
-                    email </span><span class="text-base font-normal">jandribrahim3334@gmail.com</span></a>
-                <div class="flex items-center gap-6">
-                  <a aria-label="LinkedIn profile" class="text-[#c1c1e8] hover:text-white transition-colors"
-                    href="#"><svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
-                      </path>
-                    </svg></a>
-                  <a aria-label="GitHub profile" class="text-[#c1c1e8] hover:text-white transition-colors" href="https://github.com/BrahimJandri"><svg
-                      class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                      </path>
-                    </svg></a>
-                </div>
-              </div>
+              class="w-64 h-64 sm:w-80 sm:h-80 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center justify-center overflow-hidden shadow-lg">
+              <!-- Placeholder for a photo -->
+              <img src="bjandri.jpeg" alt="A portrait of Your Name" class="w-full h-full object-cover">
             </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- ====== Projects Section ====== -->
+    <section id="projects" class="py-24 sm:py-32 bg-gray-50 dark:bg-gray-900/50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in-section">
+          <h2 class="text-4xl font-bold text-theme-red">My Projects</h2>
+          <p class="mt-4 text-lg text-theme-black dark:text-theme-cream">
+            A selection of my recent work.
+          </p>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+
+          <!-- Project Card 1 -->
+          <div
+            class="bg-theme-cream dark:bg-theme-black shadow-xl rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-theme-red/30 dark:hover:shadow-theme-red/20 fade-in-section">
+            <img src="Webserv.png" alt="Project One Screenshot" class="w-full h-auto object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-theme-black dark:text-theme-cream mb-2">WebServ</h3>
+              <p class="text-theme-black dark:text-theme-cream mb-4">
+                This project aims to create your own HTTP server. You will be able to test it with a real web browser.
+                HTTP is one of the most used protocols on the internet. Knowing its intricacies will be useful, even if
+                web development is not on your carreer path.
+              </p>
+              <div class="flex space-x-4">
+                <a href="#" target="_blank" class="text-theme-red font-bold hover:underline">Live Demo</a>
+                <a href="#" target="_blank" class="text-theme-red font-bold hover:underline">View Code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 2 -->
+          <div
+            class="bg-theme-cream dark:bg-theme-black shadow-xl rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-theme-red/30 dark:hover:shadow-theme-red/20 fade-in-section"
+            style="animation-delay: 0.2s;">
+            <img src="transcendence.png" alt="Project Two Screenshot" class="w-full h-auto object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-theme-black dark:text-theme-cream mb-2">Ft_transcendence</h3>
+              <p class="text-theme-black dark:text-theme-cream mb-4">
+                A full-stack single-page application featuring a real-time multiplayer Pong game, live chat, and user
+                profiles, built with a modern TypeScript stack.
+              </p>
+              <div class="flex space-x-4">
+                <a href="#" target="_blank" class="text-theme-red font-bold hover:underline">Live Demo</a>
+                <a href="#" target="_blank" class="text-theme-red font-bold hover:underline">View Code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more project cards as needed -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Contact Section ====== -->
+    <section id="contact" class="py-24 sm:py-32 bg-theme-cream dark:bg-theme-black">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="fade-in-section">
+          <h2 class="text-4xl font-bold text-theme-red">Let's Connect</h2>
+          <p class="mt-4 text-lg text-theme-black dark:text-theme-cream max-w-xl mx-auto">
+            I'm currently available for freelance opportunities and open to discussing new projects. Feel free to send
+            me a message!
+          </p>
+          <a href="mailto:bjandri.1337@gmail.com"
+            class="inline-block mt-10 px-8 py-3 bg-theme-red text-theme-cream text-lg font-bold rounded-lg shadow-lg hover:bg-red-700 dark:hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-theme-red focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105">
+            Email Me
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== Footer ====== -->
+  <footer class="py-8 bg-gray-50 dark:bg-gray-900/50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex justify-center space-x-6 mb-4">
+        <!-- Social Links -->
+        <a href="#" target="_blank"
+          class="text-gray-500 dark:text-gray-400 hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200"
+          aria-label="GitHub">
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.379.201 2.398.098 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.523 2 12 2z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="#" target="_blank"
+          class="text-gray-500 dark:text-gray-400 hover:text-theme-red dark:hover:text-theme-red transition-colors duration-200"
+          aria-label="LinkedIn">
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        &copy; 2025 Brahim Jandri. All rights reserved.
+      </p>
     </div>
-  </div>
+  </footer>
+
+
+  <!-- ====== JavaScript ====== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- Dark Mode Toggle Logic ---
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const htmlElement = document.documentElement;
+      const lightIcon = document.getElementById('theme-toggle-light-icon');
+      const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+      // Function to set theme
+      const setTheme = (theme) => {
+        if (theme === 'dark') {
+          htmlElement.classList.add('dark');
+          htmlElement.classList.remove('light');
+          lightIcon.classList.add('block');
+          lightIcon.classList.remove('hidden');
+          darkIcon.classList.add('hidden');
+          darkIcon.classList.remove('block');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          htmlElement.classList.remove('dark');
+          htmlElement.classList.add('light');
+          lightIcon.classList.add('hidden');
+          lightIcon.classList.remove('block');
+          darkIcon.classList.add('block');
+          darkIcon.classList.remove('hidden');
+          localStorage.setItem('theme', 'light');
+        }
+      };
+
+      // Check for saved theme in localStorage or system preference
+      const currentTheme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+      setTheme(currentTheme);
+
+      // Toggle theme on button click
+      themeToggleBtn.addEventListener('click', () => {
+        const isDark = htmlElement.classList.contains('dark');
+        setTheme(isDark ? 'light' : 'dark');
+      });
+
+
+      // --- Scroll Animation Logic ---
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, {
+        rootMargin: '0px',
+        threshold: 0.1 // Triggers when 10% of the element is visible
+      });
+
+      // Observe all elements with the 'fade-in-section' class
+      const sections = document.querySelectorAll('.fade-in-section');
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+    });
+  </script>
+
 </body>
 
 </html>
